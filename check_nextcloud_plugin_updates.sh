@@ -10,7 +10,7 @@ nextcloud_user=""
 nextcloud_password=""
 nextcloud_url=""
 webserver_user="www-data"
-occ_command_path="none"
+occ_command_path="/var/www/nextcloud/occ"
 
 #Instead of using hard-coded variables, call the script using arguments.
 while getopts ":u:p:a:w:o:" opt; do
@@ -85,20 +85,20 @@ fi
 #Second one to disable the nextcloud user after the script gets killed by signals 1, 2, 3 or 6.
 function finish
 {
-	sudo -u $webserver_user /var/www/nextcloud/occ user:disable $nextcloud_user > /dev/null
+	sudo -u $webserver_user $occ_command_path user:disable $nextcloud_user > /dev/null
 }
 trap finish EXIT
 
 trap safety 1 2 3 6
 safety()
 {
-	sudo -u $webserver_user /var/www/nextcloud/occ user:disable $nextcloud_user > /dev/null
+	sudo -u $webserver_user $occ_command_path user:disable $nextcloud_user > /dev/null
 }
 
 
 ##Here comes the main Code
 #Enabling the monitoring user with admin permissions using the occ command provided by nextcloud.
-sudo -u $webserver_user /var/www/nextcloud/occ user:enable $nextcloud_user > /dev/null 
+sudo -u $webserver_user $occ_command_path user:enable $nextcloud_user > /dev/null 
 
 #Calling the external monitoring xml page provided by nextcloud and grepping the output to have the number of available updates.
 num_updates=`curl -s --user $nextcloud_user:$nextcloud_password $nextcloud_url | grep num_updates_available | sed 's/[^0-9]*//g'`
