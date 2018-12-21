@@ -1,5 +1,5 @@
 # nextcloud_plugin_updates
-This Nagios/Icinga plugin can be used to monitor whether there are any updates for Nagios Plugins available.
+This Nagios/Icinga plugin can be used to monitor whether there are any updates for Nextcloud Plugins available.
 
 ## Installation
 1. Cloning the Repo  
