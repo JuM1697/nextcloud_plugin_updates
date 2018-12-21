@@ -20,12 +20,12 @@ Basic Nagios/Icinga plugin to monitor whether the installed Plugins have updates
    ```
    after that add two lines that look somehow like that:
    ```bash
-#user_who_runs_the_script	  ALL=(#webserver_user)  NOPASSWD:#path_to_your_occ_command user\:enable #nextcloud_username_used_to_monitor
-#user_who_runs_the_script	  ALL=(#webserver_user)  NOPASSWD:#path_to_your_occ_command user\:disable #nextcloud_username_used_to_monitor
-```
-For Debian users with a regular NRPE installation, Nextcloud in /var/www/nextcloud and a nextcloud user called "icinga" it would look like this:
-```bash
-nagios	  ALL=(www-data)  NOPASSWD:/var/www/nextcloud/occ user\:enable icinga
-nagios	  ALL=(www-data)  NOPASSWD:/var/www/nextcloud/occ user\:disable icinga
-```
+   #user_who_runs_the_script	  ALL=(#webserver_user)  NOPASSWD:#path_to_your_occ_command user\:enable #nextcloud_username_used_to_monitor
+   #user_who_runs_the_script	  ALL=(#webserver_user)  NOPASSWD:#path_to_your_occ_command user\:disable #nextcloud_username_used_to_monitor
+   ```
+   For Debian users with a regular NRPE installation, Nextcloud in /var/www/nextcloud and a nextcloud user called "icinga" it would look like this:
+   ```bash
+   nagios	  ALL=(www-data)  NOPASSWD:/var/www/nextcloud/occ user\:enable icinga
+   nagios	  ALL=(www-data)  NOPASSWD:/var/www/nextcloud/occ user\:disable icinga
+   ```
 ## Troubleshooting
