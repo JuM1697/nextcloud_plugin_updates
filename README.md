@@ -3,15 +3,15 @@ Basic Nagios/Icinga plugin to monitor whether the installed Plugins have updates
 
 ## Installation
 1. Cloning the Repo  
-To clone the Repo just run:
-```bash
-git clone https://github.com/JuM1697/nextcloud_plugin_updates.git
-```
+   To clone the Repo just run:
+   ```bash
+   git clone https://github.com/JuM1697/nextcloud_plugin_updates.git
+   ```
 2. Grant all necessary users the permission to execute the script.
 3. Copy the script in the desired location (mostly /usr/lib/nagios/plugins/
-```bash
-cp nextcloud_plugin_updates/check_nextcloud_plugin_updates.sh #your_path_goes_here
-```
+   ```bash
+   cp nextcloud_plugin_updates/check_nextcloud_plugin_updates.sh #your_path_goes_here
+   ```
 4. Grant the nagios user sudo permissions  
 To grant the nagios (or any other user that will run the script who is not root) you need to grant some special sudo permissions to execute the script without any issues. The recommended way to do so is:  
 Create a file in /etc/sudoers.d/ e.g.:
