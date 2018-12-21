@@ -1,0 +1,4 @@
+hello world
+notes:
+
+http://redsymbol.net/articles/bash-exit-traps/
