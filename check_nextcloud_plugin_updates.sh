@@ -62,6 +62,11 @@ function finish
 }
 trap finish EXIT
 
+trap safety 1 2 3 6
+safety()
+{
+	sudo -u www-data /var/www/nextcloud/occ user:disable $nextcloud_user > /dev/null
+}
 
 
 sudo -u www-data /var/www/nextcloud/occ user:enable $nextcloud_user > /dev/null 
@@ -71,10 +76,8 @@ num_updates=`curl -s --user $nextcloud_user:$nextcloud_password $nextcloud_url |
 if [ $num_updates -ne 0 ]
 then
 	echo "Nextcloud Plugins CRITICAL - $num_updates updates are available"
-	sudo -u www-data /var/www/nextcloud/occ user:disable $nextcloud_user > /dev/null
 	exit 2
 else
 	echo "Nextcloud Plugins OK - 0 updates are available"
-	sudo -u www-data /var/www/nextcloud/occ user:disable $nextcloud_user > /dev/null
 	exit 0
 fi
