@@ -4,10 +4,13 @@
 #	- sudo permissions for nagios user
 #	- nextcloud user with admin permissions
 set -eu
+
+#Pre-Definitions for variables
 nextcloud_user=""
 nextcloud_password=""
 nextcloud_url=""
 
+#Instead of using hard-coded variables, call the script using variables
 while getopts ":u:p:a:" opt; do
 	case $opt in
 		u)
@@ -31,6 +34,7 @@ while getopts ":u:p:a:" opt; do
 done
 
 
+#Checking whether all necessary variables have been set or not
 if [ -z $nextcloud_user ] && [ -z $nextcloud_password ] && [ -z $nextcloud_url ]
 then
 	echo "Either provide a user with -u argument and a password with -p argument and an url with -a argument or define them in line #7, #8 and #9"
@@ -56,6 +60,7 @@ then
 	exit 5
 fi
 
+#Two Shell traps to provide safety:
 function finish
 {
 	sudo -u www-data /var/www/nextcloud/occ user:disable $nextcloud_user > /dev/null
