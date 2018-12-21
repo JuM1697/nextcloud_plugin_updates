@@ -1,5 +1,5 @@
 # nextcloud_plugin_updates
-Basic Nagios/Icinga plugin to monitor whether the installed Plugins have updates available
+This Nagios/Icinga plugin can be used to monitor whether there are any updates for Nagios Plugins available.
 
 ## Installation
 1. Cloning the Repo  
@@ -29,3 +29,9 @@ Basic Nagios/Icinga plugin to monitor whether the installed Plugins have updates
    nagios	  ALL=(www-data)  NOPASSWD:/var/www/nextcloud/occ user\:disable icinga
    ```
 ## Troubleshooting
+### Describtion of Exit Codes
+Exit Code | Meaning | Suggestion
+----------|---------|-----------
+0 | OK | nothing to do
+2 | Critical | update plugins
+5 | UNKNOWN | Issues with username/password/url variables
