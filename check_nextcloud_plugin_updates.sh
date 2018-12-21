@@ -95,6 +95,12 @@ safety()
 	sudo -u $webserver_user $occ_command_path user:disable $nextcloud_user > /dev/null
 }
 
+#Check the OCC command path to check if the file is executable
+if [[ ! -x $occ_command_path ]]
+then
+	echo "CRITICAL - $occ_command_path is not executable. Run: chmod u+x $occ_command_path to make it executable"
+fi
+
 
 ##Here comes the main Code
 #Enabling the monitoring user with admin permissions using the occ command provided by nextcloud.
