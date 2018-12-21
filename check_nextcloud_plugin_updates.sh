@@ -99,6 +99,12 @@ safety()
 
 
 #Check the OCC command path to check if the file is executable
+occ_exec`=sudo -u $webserver_user test -r $occ_command_path; echo $?`
+if [ $occ_command_path -ne 0]
+then
+	echo "CRITICAL - $occ_command_path is not executable. Run: chmod u+x $occ_command_path to make it executable"
+	exit 2
+fi
 #if [[ ! -x $occ_command_path ]]
 #then
 #	echo "CRITICAL - $occ_command_path is not executable. Run: chmod u+x $occ_command_path to make it executable"
