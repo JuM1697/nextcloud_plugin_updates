@@ -10,7 +10,7 @@ nextcloud_user=""
 nextcloud_password=""
 nextcloud_url=""
 webserver_user="www-data"
-occ_command_path=""
+occ_command_path="none"
 
 #Instead of using hard-coded variables, call the script using arguments.
 while getopts ":u:p:a:w:o:" opt; do
