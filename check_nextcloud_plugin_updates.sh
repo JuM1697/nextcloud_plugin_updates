@@ -61,6 +61,8 @@ then
 fi
 
 #Two Shell traps to provide safety:
+#First one disable the nextcloud user after the script exits as expected
+#Second one to disable the nextcloud user after the script gets killed by signals 1, 2, 3 or 6
 function finish
 {
 	sudo -u www-data /var/www/nextcloud/occ user:disable $nextcloud_user > /dev/null
@@ -74,10 +76,14 @@ safety()
 }
 
 
+##Here comes the main Code
+#Enabling the monitoring user with admin permissions using the occ command provided by nextcloud.
 sudo -u www-data /var/www/nextcloud/occ user:enable $nextcloud_user > /dev/null 
 
-num_updates=`curl -s --user $nextcloud_user:$nextcloud_password $nextcloud_url | grep num_updates_availabl | sed 's/[^0-9]*//g'`
+#Calling the external monitoring xml page provided by nextcloud and grepping the output to have the number of available updates.
+num_updates=`curl -s --user $nextcloud_user:$nextcloud_password $nextcloud_url | grep num_updates_available | sed 's/[^0-9]*//g'`
 
+#Easy: Not 0 updates available? If so: exit in critical state and print the amount of available updates.
 if [ $num_updates -ne 0 ]
 then
 	echo "Nextcloud Plugins CRITICAL - $num_updates updates are available"
