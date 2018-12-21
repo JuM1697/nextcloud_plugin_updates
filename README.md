@@ -35,3 +35,4 @@ Exit Code | Meaning | Suggestion
 0 | OK | nothing to do
 2 | Critical | update plugins
 5 | UNKNOWN | Issues with username/password/url variables
+6 | UNKNOWN | Issues with the Nextcloud user (username, password or permissions wrong)
