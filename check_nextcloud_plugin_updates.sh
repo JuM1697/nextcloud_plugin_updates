@@ -85,15 +85,16 @@ fi
 #Second one to disable the nextcloud user after the script gets killed by signals 1, 2, 3 or 6.
 function finish
 {
-	sudo -u $webserver_user $occ_command_path user:disable $nextcloud_user > /dev/null
+	sudo -u $webserver_user $occ_command_path user:disable $nextcloud_user > /dev/null 2>&1
 }
 trap finish EXIT
 
 trap safety 1 2 3 6
 safety()
 {
-	sudo -u $webserver_user $occ_command_path user:disable $nextcloud_user > /dev/null
+	sudo -u $webserver_user $occ_command_path user:disable $nextcloud_user > /dev/null 2>&1
 }
+
 
 #Check the OCC command path to check if the file is executable
 if [[ ! -x $occ_command_path ]]
