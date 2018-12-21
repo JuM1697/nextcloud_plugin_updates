@@ -100,6 +100,7 @@ safety()
 if [[ ! -x $occ_command_path ]]
 then
 	echo "CRITICAL - $occ_command_path is not executable. Run: chmod u+x $occ_command_path to make it executable"
+	exit 2
 fi
 
 
