@@ -108,6 +108,14 @@ fi
 #Enabling the monitoring user with admin permissions using the occ command provided by nextcloud.
 sudo -u $webserver_user $occ_command_path user:enable $nextcloud_user > /dev/null 
 
+#Check whether username and password are correct and the permissions of the nextcloud user are OK
+statuscode=`curl -s --user $nextcloud_user:$nextcloud_password $nextcloud_url | grep statuscode | sed 's/[^0-9]*//g'`
+if [ $statuscode -ne 200 ]
+then
+	echo "UNKNOWN - There's something wrong with the Nextcloud user and/or password or the permissions of the Nextcloud user"
+	exit 6
+fi
+
 #Calling the external monitoring xml page provided by nextcloud and grepping the output to have the number of available updates.
 num_updates=`curl -s --user $nextcloud_user:$nextcloud_password $nextcloud_url | grep num_updates_available | sed 's/[^0-9]*//g'`
 
