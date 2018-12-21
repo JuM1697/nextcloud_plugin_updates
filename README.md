@@ -7,9 +7,9 @@ To clone the Repo just run:
 ```bash
 git clone https://github.com/JuM1697/nextcloud_plugin_updates.git
 ```
-1. Grant all necessary users the permission to execute the script.
-1. Copy the script in the desired location (mostly /usr/lib/nagios/plugins/
+2. Grant all necessary users the permission to execute the script.
+3. Copy the script in the desired location (mostly /usr/lib/nagios/plugins/
 ```bash
 cp nextcloud_plugin_updates/check_nextcloud_plugin_updates.sh
-
+```
 ## Troubleshooting
