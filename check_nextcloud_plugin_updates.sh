@@ -109,8 +109,8 @@ fi
 sudo -u $webserver_user $occ_command_path user:enable $nextcloud_user > /dev/null 
 
 #Check whether username and password are correct and the permissions of the nextcloud user are OK
-statuscode=`curl -s --user $nextcloud_user:$nextcloud_password $nextcloud_url | grep statuscode | sed 's/[^0-9]*//g'`
-if [ $statuscode -ne 200 ]
+status_code=`curl -s --user $nextcloud_user:$nextcloud_password $nextcloud_url | grep statuscode | sed 's/[^0-9]*//g'`
+if [ $status_code -ne 200 ]
 then
 	echo "UNKNOWN - There's something wrong with the Nextcloud user and/or password or the permissions of the Nextcloud user"
 	exit 6
