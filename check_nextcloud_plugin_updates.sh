@@ -99,11 +99,11 @@ safety()
 
 
 #Check the OCC command path to check if the file is executable
-if [[ ! -x $occ_command_path ]]
-then
-	echo "CRITICAL - $occ_command_path is not executable. Run: chmod u+x $occ_command_path to make it executable"
-	exit 2
-fi
+#if [[ ! -x $occ_command_path ]]
+#then
+#	echo "CRITICAL - $occ_command_path is not executable. Run: chmod u+x $occ_command_path to make it executable"
+#	exit 2
+#fi
 
 
 ##Here comes the main Code
