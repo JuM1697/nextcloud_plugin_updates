@@ -83,11 +83,11 @@ fi
 #Two Shell traps to provide safety:
 #First one disable the nextcloud user after the script exits as expected.
 #Second one to disable the nextcloud user after the script gets killed by signals 1, 2, 3 or 6.
+trap finish EXIT
 function finish
 {
 	sudo -u $webserver_user $occ_command_path user:disable $nextcloud_user > /dev/null 2>&1
 }
-trap finish EXIT
 
 trap safety 1 2 3 6
 safety()
