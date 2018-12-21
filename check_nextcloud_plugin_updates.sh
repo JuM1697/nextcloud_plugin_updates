@@ -5,12 +5,12 @@
 #	- nextcloud user with admin permissions
 set -eu
 
-#Pre-Definitions for variables
+#Pre-Definitions for variables.
 nextcloud_user=""
 nextcloud_password=""
 nextcloud_url=""
 
-#Instead of using hard-coded variables, call the script using variables
+#Instead of using hard-coded variables, call the script using arguments.
 while getopts ":u:p:a:" opt; do
 	case $opt in
 		u)
@@ -34,7 +34,7 @@ while getopts ":u:p:a:" opt; do
 done
 
 
-#Checking whether all necessary variables have been set or not
+#Checking whether all necessary variables have been set or not.
 if [ -z $nextcloud_user ] && [ -z $nextcloud_password ] && [ -z $nextcloud_url ]
 then
 	echo "Either provide a user with -u argument and a password with -p argument and an url with -a argument or define them in line #7, #8 and #9"
@@ -61,8 +61,8 @@ then
 fi
 
 #Two Shell traps to provide safety:
-#First one disable the nextcloud user after the script exits as expected
-#Second one to disable the nextcloud user after the script gets killed by signals 1, 2, 3 or 6
+#First one disable the nextcloud user after the script exits as expected.
+#Second one to disable the nextcloud user after the script gets killed by signals 1, 2, 3 or 6.
 function finish
 {
 	sudo -u www-data /var/www/nextcloud/occ user:disable $nextcloud_user > /dev/null
