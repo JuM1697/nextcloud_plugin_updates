@@ -1,8 +1,10 @@
 #!/bin/bash
 #Author: Justin Michael
 #Requirements:
+#	- sudo installed
 #	- sudo permissions for nagios user
 #	- nextcloud user with admin permissions
+#	- curl installed
 set -eu
 
 #Pre-Definitions for variables.
