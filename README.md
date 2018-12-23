@@ -35,8 +35,8 @@ This Nagios/Icinga plugin can be used to monitor whether there are any updates f
 To run the script properly you need to provide the URL to the Nextcloud external monitoring XML page. You can find it by accessing the following menues:
 - settings
 - Information
-- Scroll all the way to the bottom and you'll have a field with a "copy url" button.
- The URL provided in that field is your link to the external monitoring XML page. Please note that only users with administrative permissions in Nextcloud can access it.
+- Scroll all the way to the bottom and you'll have a field with a "copy url" button. 
+The URL provided in that field is your link to the external monitoring XML page. Please note that only users with administrative permissions in Nextcloud can access it.
 ## Troubleshooting
 ### Describtion of Exit Codes
 Exit Code | Meaning | Suggestion
