@@ -13,12 +13,12 @@ This Nagios/Icinga plugin can be used to monitor whether there are any updates f
    cp nextcloud_plugin_updates/check_nextcloud_plugin_updates.sh #your_path_goes_here
    ```
 4. Grant the nagios user sudo permissions  
-   To grant the nagios (or any other user that will run the script who is not root) you need to grant some special sudo permissions to execute the script without any issues. The recommended way to do so is:  
+   To execute the script without any issues, you need to grant the nagios user (or any other user that will run the script who is not root) some special sudo permissions. The recommended way to do so is:  
    Create a file in /etc/sudoers.d/ e.g.:
    ```bash
    vi /etc/sudoers.d/nagios
    ```
-   after that add two lines that look somehow like that:
+   after that add some lines that look somehow like that:
    ```bash
    #user_who_runs_the_script    ALL=(#webserver_user)  NOPASSWD:/usr/bin/test -x #path_to_your_occ_command
    #user_who_runs_the_script	  ALL=(#webserver_user)  NOPASSWD:#path_to_your_occ_command user\:enable #nextcloud_username_used_to_monitor
