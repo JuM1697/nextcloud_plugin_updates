@@ -123,9 +123,13 @@ fi
 num_updates=`curl -s --user $nextcloud_user:$nextcloud_password $nextcloud_url | grep num_updates_available | sed 's/[^0-9]*//g'`
 
 #Easy: Not 0 updates available? If so: exit in critical state and print the amount of available updates.
-if [ $num_updates -ne 0 ]
+if [ $num_updates -gt 1 ]
 then
 	echo "Nextcloud Plugins CRITICAL - $num_updates updates are available"
+	exit 2
+elif [ $num_updates -eq 1 ]
+then
+	echo "Nextcloud Plugins CRITICAL - $num_updates update is available"
 	exit 2
 else
 	echo "Nextcloud Plugins OK - 0 updates are available"
