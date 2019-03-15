@@ -102,7 +102,7 @@ safety()
 occ_exec=`sudo -u $webserver_user test -x $occ_command_path; echo $?`
 if [[ "$occ_exec" -ne "0" ]]
 then
-	echo "UNKNOWN - $occ_command_path is not executable. Run: chmod u+x $occ_command_path to make it executable"
+	echo "WARNING - $occ_command_path is not executable. Run: chmod u+x $occ_command_path to make it executable"
 	exit 7
 fi
 
@@ -115,7 +115,7 @@ sudo -u $webserver_user $occ_command_path user:enable $nextcloud_user > /dev/nul
 status_code=`curl -s --user $nextcloud_user:$nextcloud_password $nextcloud_url | grep statuscode | sed 's/[^0-9]*//g'`
 if [ $status_code -ne 200 ]
 then
-	echo "UNKNOWN - There's something wrong with the Nextcloud user and/or password or the permissions of the Nextcloud user"
+	echo "WARNING - There's something wrong with the Nextcloud user and/or password or the permissions of the Nextcloud user"
 	exit 6
 fi
 
