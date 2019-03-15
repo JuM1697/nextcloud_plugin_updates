@@ -6,8 +6,6 @@
 #	- nextcloud user with admin permissions
 #	- curl installed
 #
-#Test branch commit
-#
 
 set -eu
 
