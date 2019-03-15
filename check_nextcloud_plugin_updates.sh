@@ -6,7 +6,7 @@
 #	- nextcloud user with admin permissions
 #	- curl installed
 #
-
+#Test text
 set -eu
 
 #Pre-Definitions for variables.
