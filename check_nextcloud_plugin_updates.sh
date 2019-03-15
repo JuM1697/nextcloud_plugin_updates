@@ -5,6 +5,9 @@
 #	- sudo permissions for nagios user
 #	- nextcloud user with admin permissions
 #	- curl installed
+#
+#Test branch commit
+
 set -eu
 
 #Pre-Definitions for variables.
