@@ -38,7 +38,7 @@ To run the script properly you need to provide the URL to the Nextcloud external
 - Scroll all the way to the bottom and you'll have a field with a "copy url" button.
  The URL provided in that field is your link to the external monitoring XML page. Please note that only users with administrative permissions in Nextcloud can access it.
 ## Troubleshooting
-### Describtion of Exit Codes
+### Description of Exit Codes
 Exit Code | Meaning | Suggestion
 ----------|---------|-----------
 0 | OK | nothing to do
